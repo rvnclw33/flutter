@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main()
@@ -31,13 +29,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Demo App Flutter'),
+        title: const Text(
+            'Demo App Flutter',
+              style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Click the button many times!'),
-            Text('1', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)
+            Text('Click the Button Many Times!'),
+            Text(
+                number.toString(),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)
             ),
           ],
         ),
@@ -45,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            number++;
+            setState(() {
+              number++;
+            });
             print(number); // print to console log
           },
       ),
